@@ -1,0 +1,19 @@
+{
+  "name": "machine",
+  "version": "1.0.0",
+  "description": "raspberry pi demo machine",
+  "main": "machine.js",
+  "scripts": {
+    "start": "node machine.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tBlabs/RaspberryPiDemo.Machine.git"
+  },
+  "author": "tB",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "onoff": "^1.1.5"
+  }
+}
