@@ -2,4 +2,5 @@
 
 hostname -I
 
-sudo node machine.js
+echo Starting main script...
+npm run start

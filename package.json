@@ -4,7 +4,7 @@
   "description": "raspberry pi demo machine",
   "main": "machine.js",
   "scripts": {
-    "start": "node machine.js"
+    "start": "sudo node machine.js"
   },
   "repository": {
     "type": "git",

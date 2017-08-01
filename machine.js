@@ -5,15 +5,20 @@ var exe = require('./exec').Exec;
 var Gpio = require('onoff').Gpio;
 var led1 = null;
 
-if (!process.env.HOST.includes('localhost'))
+if (process.env.HOST.includes('localhost'))
 {
+    console.log('Localhost dont have Raspberry Pi GPIO');
+}
+else
+{
+    console.log('Working on Raspberry Pi');
     led1 = new Gpio(17, 'out');
 }
 
 console.log('Starting machine...');
 
 
-const socket = io(process.env.HOST + '?client_type=machine');
+const socket = io(process.env.HOST + '?client_type=machine', { rejectUnauthorized: false }); // rejectUnauthorized required for host working with SSL
 
 socket.on('connect', () =>
 {
@@ -42,6 +47,10 @@ socket.on('connect', () =>
                 console.log('Radio off');
                 exe('mpc stop');
                 break;
+
+            default: 
+                console.log('Unknown command');
+                break;
         }
     });
 });
@@ -51,22 +60,8 @@ socket.on('disconnect', () =>
     console.log('Disconnected from server');
 });
 
-// var Gpio = require('onoff').Gpio;
-// var led = new Gpio(17, 'out');
-// var button = new Gpio(4, 'in', 'both');
+process.on('SIGINT', function ()
+{
+    led.unexport();
+});
 
-// let value = 0;
-
-// setInterval(() =>
-// {
-//     socket.emit('is_alive');
-
-//     // value = 1 - value;
-//     // led.writeSync(value);
-// }, 1000);
-
-// process.on('SIGINT', function ()
-// {
-//     led.unexport();
-//     button.unexport();
-// });
