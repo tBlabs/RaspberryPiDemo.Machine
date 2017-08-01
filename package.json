@@ -4,7 +4,9 @@
   "description": "raspberry pi demo machine",
   "main": "machine.js",
   "scripts": {
-    "start": "sudo node machine.js"
+    "start": "node machine.js",
+    "publish": "git pull && git add . && git commit -m \"fast commit\" git push",
+    "update": "git pull"
   },
   "repository": {
     "type": "git",

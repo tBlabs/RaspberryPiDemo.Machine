@@ -24,28 +24,32 @@ socket.on('connect', () =>
 {
     console.log('Connected to server');
 
-    socket.on('server-to-machine', (cmd) =>
+    socket.on('human-to-machine', (cmd) =>
     {
         switch (cmd)
         {
             case 'led1on':
                 console.log('Led 1 on');
                 if (led1) led1.writeSync(1);
+                socket.emit('machine-to-human', 'led1', 'ison');
                 break;
 
             case 'led1off':
                 console.log('Led 1 off');
                 if (led1) led1.writeSync(0);                
+                socket.emit('machine-to-human', 'led1', 'isoff');                
                 break;
 
             case 'radioon':
                 console.log('Radio on');
                 exe('mpc play');
+                socket.emit('machine-to-human', 'radio', 'ison');                
                 break;
 
             case 'radiooff':
                 console.log('Radio off');
                 exe('mpc stop');
+                socket.emit('machine-to-human', 'radio', 'isoff');                
                 break;
 
             default: 
