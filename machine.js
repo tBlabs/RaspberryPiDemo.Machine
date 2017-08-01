@@ -30,12 +30,12 @@ socket.on('connect', () =>
         {
             case 'led1on':
                 console.log('Led 1 on');
-                if (led1) led1.writeSync(true);
+                if (led1) led1.writeSync(1);
                 break;
 
             case 'led1off':
                 console.log('Led 1 off');
-                if (led1) led1.writeSync(false);                
+                if (led1) led1.writeSync(0);                
                 break;
 
             case 'radioon':
