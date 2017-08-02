@@ -14,6 +14,8 @@
 - Clone this repo to Raspberry Pi machine (`git clone https://github.com/tBlabs/RaspberryPiDemo.Machine`) 
 - Create manually `.env` file. Add `HOST={url of server side}` entry (copy link directly from browser address bar)
 - Run `npm i` to install `node_modules`
+- In case of any problems run `npm rebuild`. If rebuild will hang on this kind of message: `make: Warning: File '../../../../.node-gyp/8.2.1/include/node/common.gypi' has modification time 1219765 s in the future
+  ACTION Regenerating Makefile` update system clock with `sudo sntp -s time.google.com`RTC
 - Execute main script (`machine.js`) without sudo permissions (GPIO will not start with `sudo`) or add entry `./startup.sh` to `.bashrc` file
 
 ## Hardware
