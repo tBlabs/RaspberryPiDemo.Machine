@@ -9,6 +9,8 @@
   - Test the installation with `node -v` and `npm -v`
 - Update system with `sudo apt-get update` and then `sudo apt-get upgrade` (without it next step may not work)
 - Install `mpc` and `mpd` (`sudo apt-get install mpc mpd`)
+- Add some radio station (for example from https://www.internet-radio.com/stations/chillout/; open any .pls file and find station url) to music player: `mpc add https://www.internet-radio.com/stations/chillout/` and test it with `mpc play`
+- Install `git` with `sudo apt-get install git -y`
 - Clone this repo to Raspberry Pi machine (`git clone https://github.com/tBlabs/RaspberryPiDemo.Machine`) 
 - Create manually `.env` file. Add `HOST={url of server side}` entry (copy link directly from browser address bar)
 - Run `npm i` to install `node_modules`
@@ -16,7 +18,9 @@
 
 ## Hardware
 - Connect led to GPIO 17
+- Test led by running test script `node gpiotest.js`
 - Connect speakers to audio output
+- Test speakers with `mpc volume 100 && mpc play`
 
 
 # Raspberry Pi setup
