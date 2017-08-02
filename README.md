@@ -20,8 +20,8 @@
 
 
 # Raspberry Pi setup
-- Download Jessie Lite from https://www.raspberrypi.org/downloads/raspbian/
-- Write OS image with Etcher https://www.raspberrypi.org/documentation/installation/installing-images/README.md
+- Download `Jessie Lite` from https://www.raspberrypi.org/downloads/raspbian/
+- Burn OS image with `Etcher` https://www.raspberrypi.org/documentation/installation/installing-images/README.md
 - Put SD card to Raspberry and power on
 - Login with `pi` and `raspberry` password
 - Open config with `sudo raspi-config`
@@ -34,3 +34,15 @@
 - Reboot again
 - Test internet connection with `ping www.wp.pl`. Interrupt with `Ctrl+C`
 - Now Raspberry is ready to action :)
+
+### Enable SSH
+
+#### Raspberry
+- In command line write `hostname -I` to obtain Raspberry IP
+- Enable SSH (if you didn't already): `sudo raspi-config` > `Interfacing Options` > enable SSH 
+
+#### Ubuntu
+- Use obtained IP with command `ssh pi@<raspberry IP>`
+- Enter password `pi`
+- You can now control your Raspberry from your terminal
+- Exit with `exit` command
