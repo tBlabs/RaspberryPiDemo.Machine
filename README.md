@@ -17,3 +17,20 @@
 ## Hardware
 - Connect led to GPIO 17
 - Connect speakers to audio output
+
+
+# Raspberry Pi setup
+- Download Jessie Lite from https://www.raspberrypi.org/downloads/raspbian/
+- Write OS image with Etcher https://www.raspberrypi.org/documentation/installation/installing-images/README.md
+- Put SD card to Raspberry and power on
+- Login with `pi` and `raspberry` password
+- Open config with `sudo raspi-config`
+- In `Boot Options` select `Desktop / CLI` and then `Console Autologin`
+- In `Interfacing Options` enable SSH if you gonna use it
+- `Change User Password` and `Hostname` to `pi` if you like
+- Switch to "normal keyboard layout" with `sudo nano /etc/default/keyboard` and change `XKBLAYOUT="gb"` on `XKBLAYOUT="us"`. Exit nano with `Ctrl+X` and then `Y` and then `Enter` (`^X` = `Ctrl+X`)
+- Reboot with `sudo reboot`
+- Enable wifi by adding entry to `/etc/wpa_supplicant/wpa_supplicant.conf` at the end: `network={<new line><tab>ssid="<network name>"<new line><tab>psk="<password>"<new line>}`
+- Reboot again
+- Test internet connection with `ping www.wp.pl`. Interrupt with `Ctrl+C`
+- Now Raspberry is ready to action :)
