@@ -5,7 +5,7 @@
   "main": "machine.js",
   "scripts": {
     "start": "node machine.js",
-    "publish": "git pull && git add . && git commit -m \"fast commit\" git push",
+    "publish": "git pull && git add . && git commit -m \"fast commit\" && git push",
     "update": "git pull"
   },
   "repository": {

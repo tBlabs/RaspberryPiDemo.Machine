@@ -4,6 +4,7 @@ var io = require('socket.io-client');
 var exe = require('./exec').Exec;
 var Gpio = require('onoff').Gpio;
 var led1 = null;
+var led2 = null;
 
 if (process.env.HOST.includes('localhost'))
 {
@@ -13,6 +14,7 @@ else
 {
     console.log('Working on Raspberry Pi');
     led1 = new Gpio(17, 'out');
+    led2 = new Gpio(17, 'out');
 }
 
 console.log('Starting machine...');
@@ -23,6 +25,7 @@ const socket = io(process.env.HOST + '?client_type=machine', { rejectUnauthorize
 socket.on('connect', () =>
 {
     console.log('Connected to server');
+    if (led2) led2.writeSync(1);
 
     socket.on('human-to-machine', (cmd) =>
     {
@@ -62,10 +65,12 @@ socket.on('connect', () =>
 socket.on('disconnect', () =>
 {
     console.log('Disconnected from server');
+    if (led2) led2.writeSync(0);
 });
 
 process.on('SIGINT', function ()
 {
-    led.unexport();
+    led1.unexport();
+    led2.unexport();
 });
 
