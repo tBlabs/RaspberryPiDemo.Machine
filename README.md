@@ -25,6 +25,12 @@
 - Test speakers with `mpc volume 100 && mpc play`
 
 
+# Run locally
+- Set `HOST` in `.env` file to localhost (ex. `http://localhost:3000`)
+- `node machine.js`
+- You can see comunication results in console
+
+
 # Raspberry Pi setup
 - Download `Jessie Lite` from https://www.raspberrypi.org/downloads/raspbian/
 - Burn OS image with `Etcher` https://www.raspberrypi.org/documentation/installation/installing-images/README.md
