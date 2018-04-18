@@ -14,7 +14,7 @@ else
 {
     console.log('Working on Raspberry Pi');
     led1 = new Gpio(17, 'out');
-    led2 = new Gpio(17, 'out');
+    led2 = new Gpio(18, 'out');
 }
 
 console.log('Starting machine...');
